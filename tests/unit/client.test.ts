@@ -34,12 +34,12 @@ describe('DattoSaasProtectionClient', () => {
 
   it('uses the US base URL by default', () => {
     const c = makeClient();
-    expect(c.getConfig().apiUrl).toBe('https://api.dattobackup.com/api/v1');
+    expect(c.getConfig().apiUrl).toBe('https://api.datto.com/api/v1');
   });
 
   it('uses the EU base URL when region: "eu"', async () => {
     const c = makeClient({ region: 'eu' });
-    expect(c.getConfig().apiUrl).toBe('https://api.eu.dattobackup.com/api/v1');
+    expect(c.getConfig().apiUrl).toBe('https://api.eu.datto.com/api/v1');
     const page = await c.clients.list({ limit: 50 });
     expect(page.items[0]?.id).toBe('eu-1');
   });

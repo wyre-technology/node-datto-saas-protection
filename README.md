@@ -1,7 +1,7 @@
 # @wyre-technology/node-datto-saas-protection
 
 Comprehensive, fully-typed Node.js / TypeScript client library for the
-[Datto SaaS Protection (Backupify) REST API](https://api.dattobackup.com/api/v1).
+[Datto SaaS Protection (Backupify) REST API](https://api.datto.com/api/v1).
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
@@ -55,7 +55,7 @@ new DattoSaasProtectionClient({
   region: 'us', // 'us' | 'eu', default 'us'
 
   // Optional — override the base URL entirely (forward-compat)
-  apiUrl: 'https://api.dattobackup.com/api/v1',
+  apiUrl: 'https://api.datto.com/api/v1',
 
   // Optional — tune client-side rate limiting
   rateLimit: {
@@ -76,8 +76,8 @@ Datto SaaS Protection is split across two regional control planes:
 
 | Region | Base URL                                  |
 | ------ | ----------------------------------------- |
-| `us`   | `https://api.dattobackup.com/api/v1`      |
-| `eu`   | `https://api.eu.dattobackup.com/api/v1`   |
+| `us`   | `https://api.datto.com/api/v1`      |
+| `eu`   | `https://api.eu.datto.com/api/v1`   |
 
 > **Region stickiness**: an API key issued in one region cannot call the
 > other region's endpoints. The upstream API surfaces this as a generic

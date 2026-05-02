@@ -15,8 +15,8 @@ export type DattoSaasProtectionRegion = 'us' | 'eu';
  * Per-region base URLs.
  */
 export const REGION_BASE_URLS: Readonly<Record<DattoSaasProtectionRegion, string>> = {
-  us: 'https://api.dattobackup.com/api/v1',
-  eu: 'https://api.eu.dattobackup.com/api/v1',
+  us: 'https://api.datto.com/api/v1',
+  eu: 'https://api.eu.datto.com/api/v1',
 };
 
 /** Default region if none is supplied. */

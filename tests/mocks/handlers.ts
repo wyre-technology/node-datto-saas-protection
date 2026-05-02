@@ -6,8 +6,8 @@
 
 import { http, HttpResponse } from 'msw';
 
-const US = 'https://api.dattobackup.com/api/v1';
-const EU = 'https://api.eu.dattobackup.com/api/v1';
+const US = 'https://api.datto.com/api/v1';
+const EU = 'https://api.eu.datto.com/api/v1';
 
 interface RestoreRecord {
   id: string;
