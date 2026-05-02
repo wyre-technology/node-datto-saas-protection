@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/wyre-technology/node-datto-saas-protection/compare/v1.0.0...v1.0.1) (2026-05-02)
+
+
+### Bug Fixes
+
+* switch base URL from dattobackup.com to datto.com ([9c8571b](https://github.com/wyre-technology/node-datto-saas-protection/commit/9c8571bd2eefdd6a9ef3ae5fef0f07c28cd04156)), closes [msp-claude-plugins#69](https://github.com/msp-claude-plugins/issues/69)
+
 # 1.0.0 (2026-05-01)
 
 
