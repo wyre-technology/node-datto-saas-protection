@@ -13,7 +13,8 @@ function makeClient(
   overrides: Partial<ConstructorParameters<typeof DattoSaasProtectionClient>[0]> = {}
 ): DattoSaasProtectionClient {
   return new DattoSaasProtectionClient({
-    apiKey: 'test-bearer',
+    publicKey: 'test-public',
+    secretKey: 'test-secret',
     region: 'us',
     rateLimit: { maxRetries: 0, retryAfterMs: 1, enabled: false },
     ...overrides,
@@ -34,12 +35,12 @@ describe('DattoSaasProtectionClient', () => {
 
   it('uses the US base URL by default', () => {
     const c = makeClient();
-    expect(c.getConfig().apiUrl).toBe('https://api.datto.com/api/v1');
+    expect(c.getConfig().apiUrl).toBe('https://api.datto.com/v1/saas');
   });
 
   it('uses the EU base URL when region: "eu"', async () => {
     const c = makeClient({ region: 'eu' });
-    expect(c.getConfig().apiUrl).toBe('https://api.eu.datto.com/api/v1');
+    expect(c.getConfig().apiUrl).toBe('https://api.eu.datto.com/v1/saas');
     const page = await c.clients.list({ limit: 50 });
     expect(page.items[0]?.id).toBe('eu-1');
   });
@@ -161,7 +162,7 @@ describe('DattoSaasProtectionClient', () => {
     );
   });
 
-  it('sends the Authorization: Bearer header (verified via successful list call)', async () => {
+  it('sends the Authorization: Basic header (verified via successful list call)', async () => {
     // The handlers do not assert on the header, so this is a smoke test —
     // a missing header would fail unauthenticated against a real server.
     const c = makeClient();

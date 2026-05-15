@@ -22,7 +22,8 @@ import { LicenseResource } from './resources/license.js';
  * import { DattoSaasProtectionClient } from '@wyre-technology/node-datto-saas-protection';
  *
  * const client = new DattoSaasProtectionClient({
- *   apiKey: process.env.DATTO_SAAS_API_KEY!,
+ *   publicKey: process.env.DATTO_SAAS_PUBLIC_KEY!,
+ *   secretKey: process.env.DATTO_SAAS_SECRET_KEY!,
  *   region: 'us', // or 'eu'
  * });
  *

@@ -20,3 +20,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+### Changed (BREAKING)
+
+- Auth scheme: `Authorization: Bearer <apiKey>` → `Authorization: Basic base64(publicKey:secretKey)`. The original scaffold used a Bearer token against `/api/v1/clients` — that's Datto BCDR/PSA's API surface. Datto SaaS Protection's REST API uses HTTP Basic auth with a public/secret key pair issued from the partner portal.
+- Base URL: `https://api.{us,eu}.datto.com/api/v1` → `https://api.{us,eu}.datto.com/v1/saas`. The SaaS Protection REST API is rooted at `/v1/saas`; the old prefix returned `exception.notfoundhttpexception` 404s from Datto's Symfony edge.
+- Config: `DattoSaasProtectionConfig.apiKey` removed. Callers must now pass both `publicKey` and `secretKey`.
+
+### Known issues
+
+- Resource paths (`/clients/{id}/domains`, `/clients/{id}/activity`, etc.) were written against the same speculative spec as the auth/base-URL bugs. Only `/v1/saas/domains` is confirmed against published docs. Per-customer paths may need further correction once we have a live partner key to test against.
