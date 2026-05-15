@@ -1,8 +1,9 @@
 /**
  * HTTP layer for the Datto SaaS Protection API.
  *
- * Authentication is a simple Bearer token — no HMAC signing. Pagination is
- * cursor-based (see {@link ./pagination.ts}).
+ * Authentication is HTTP Basic with a public/secret key pair issued from the
+ * SaaS Protection partner portal. Pagination is cursor-based (see
+ * {@link ./pagination.ts}).
  */
 
 import type { ResolvedConfig } from './config.js';
@@ -69,9 +70,13 @@ export class HttpClient {
   ): Promise<T> {
     await this.rateLimiter.waitForSlot();
 
+    const basic = Buffer.from(
+      `${this.config.publicKey}:${this.config.secretKey}`,
+      'utf8',
+    ).toString('base64');
     const headers: Record<string, string> = {
       Accept: 'application/json',
-      Authorization: `Bearer ${this.config.apiKey}`,
+      Authorization: `Basic ${basic}`,
     };
     if (bodyString) headers['Content-Type'] = 'application/json';
 

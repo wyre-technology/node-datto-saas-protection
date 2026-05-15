@@ -13,10 +13,15 @@ export type DattoSaasProtectionRegion = 'us' | 'eu';
 
 /**
  * Per-region base URLs.
+ *
+ * The SaaS Protection REST API lives under `/v1/saas/...` on Datto's edge —
+ * distinct from the BCDR/PSA `/api/v1/...` surface that shares the same host.
+ * Sending SaaS Protection requests to `/api/v1/...` returns 404
+ * (`exception.notfoundhttpexception`) from Datto's Symfony layer.
  */
 export const REGION_BASE_URLS: Readonly<Record<DattoSaasProtectionRegion, string>> = {
-  us: 'https://api.datto.com/api/v1',
-  eu: 'https://api.eu.datto.com/api/v1',
+  us: 'https://api.datto.com/v1/saas',
+  eu: 'https://api.eu.datto.com/v1/saas',
 };
 
 /** Default region if none is supplied. */
@@ -61,10 +66,15 @@ export const DEFAULT_RATE_LIMIT_CONFIG: RateLimitConfig = {
 
 /**
  * Configuration for the Datto SaaS Protection client.
+ *
+ * SaaS Protection uses HTTP Basic Auth with a public/secret key pair issued
+ * from the partner portal — not a single bearer token.
  */
 export interface DattoSaasProtectionConfig {
-  /** Bearer API key issued from the SaaS Protection partner portal. */
-  apiKey: string;
+  /** Public API key from the SaaS Protection partner portal. */
+  publicKey: string;
+  /** Secret API key from the SaaS Protection partner portal. */
+  secretKey: string;
   /** Region to target (default: "us"). */
   region?: DattoSaasProtectionRegion;
   /**
@@ -80,7 +90,8 @@ export interface DattoSaasProtectionConfig {
  * Resolved configuration with defaults applied.
  */
 export interface ResolvedConfig {
-  apiKey: string;
+  publicKey: string;
+  secretKey: string;
   region: DattoSaasProtectionRegion;
   apiUrl: string;
   rateLimit: RateLimitConfig;
@@ -90,8 +101,11 @@ export interface ResolvedConfig {
  * Resolve a {@link DattoSaasProtectionConfig} by applying defaults.
  */
 export function resolveConfig(config: DattoSaasProtectionConfig): ResolvedConfig {
-  if (!config.apiKey) {
-    throw new Error('apiKey must be provided');
+  if (!config.publicKey) {
+    throw new Error('publicKey must be provided');
+  }
+  if (!config.secretKey) {
+    throw new Error('secretKey must be provided');
   }
   const region = config.region ?? DEFAULT_REGION;
   if (region !== 'us' && region !== 'eu') {
@@ -100,7 +114,8 @@ export function resolveConfig(config: DattoSaasProtectionConfig): ResolvedConfig
   const baseFromRegion = REGION_BASE_URLS[region];
   const apiUrl = (config.apiUrl ?? baseFromRegion).replace(/\/+$/, '');
   return {
-    apiKey: config.apiKey,
+    publicKey: config.publicKey,
+    secretKey: config.secretKey,
     region,
     apiUrl,
     rateLimit: {
