@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/wyre-technology/node-datto-saas-protection/compare/v1.0.1...v2.0.0) (2026-05-15)
+
+
+* fix!: use HTTP Basic auth + /v1/saas base for SaaS Protection API ([#2](https://github.com/wyre-technology/node-datto-saas-protection/issues/2)) ([c052563](https://github.com/wyre-technology/node-datto-saas-protection/commit/c0525637a19c13f9490bb6ad3465fbd3f97ebdd3))
+
+
+### BREAKING CHANGES
+
+* DattoSaasProtectionConfig.apiKey removed. Callers must
+now pass both publicKey and secretKey.
+
+Known follow-up: per-customer resource paths in src/resources/*.ts were
+written against the same speculative spec and may need correction once
+a live partner key is available for verification (CHANGELOG flags this).
+
 ## [1.0.1](https://github.com/wyre-technology/node-datto-saas-protection/compare/v1.0.0...v1.0.1) (2026-05-02)
 
 
