@@ -7,8 +7,7 @@ export type RestoreStatus =
   | 'running'
   | 'completed'
   | 'failed'
-  | 'cancelled'
-  | string;
+  | 'cancelled';
 
 /** Terminal statuses for a restore — polling stops here. */
 export const TERMINAL_RESTORE_STATUSES: ReadonlyArray<RestoreStatus> = [

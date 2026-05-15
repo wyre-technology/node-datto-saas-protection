@@ -77,7 +77,7 @@ export class RestoresResource {
     const sleep = options.sleep ?? ((ms) => new Promise<void>((r) => setTimeout(r, ms)));
     const start = now();
 
-    while (true) {
+    for (;;) {
       const restore = await this.get(restoreId);
       if (isTerminal(restore.status)) return restore;
 
