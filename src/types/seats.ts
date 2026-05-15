@@ -2,7 +2,7 @@
  * Seat (mailbox / OneDrive / SharePoint site / Google user) types.
  */
 
-export type SeatType = 'mailbox' | 'onedrive' | 'sharepoint' | 'google_user' | string;
+export type SeatType = 'mailbox' | 'onedrive' | 'sharepoint' | 'google_user';
 
 export interface SaasProtectionSeat {
   id: string;

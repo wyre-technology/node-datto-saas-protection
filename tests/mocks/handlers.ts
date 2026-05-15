@@ -107,7 +107,7 @@ export const handlers = [
   ),
 
   // Restores — POST queues
-  http.post(`${US}/seats/:seatId/restores`, async ({ params }) => {
+  http.post(`${US}/seats/:seatId/restores`, ({ params }) => {
     const seatId = String(params['seatId']);
     if (seatId === 'seat-conflict') {
       return HttpResponse.json(

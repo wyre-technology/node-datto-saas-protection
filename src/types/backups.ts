@@ -2,7 +2,7 @@
  * Backup / restore-point types.
  */
 
-export type BackupStatus = 'success' | 'partial' | 'failed' | string;
+export type BackupStatus = 'success' | 'partial' | 'failed';
 
 export interface SaasProtectionBackup {
   id: string;

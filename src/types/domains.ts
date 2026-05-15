@@ -2,7 +2,7 @@
  * Domain (M365 tenant / Google Workspace domain) types.
  */
 
-export type DomainProvider = 'm365' | 'google' | string;
+export type DomainProvider = 'm365' | 'google';
 
 export interface SaasProtectionDomain {
   id: string;
