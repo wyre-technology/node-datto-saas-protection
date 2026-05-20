@@ -31,7 +31,7 @@ export const handlers = [
   http.get(`${US}/clients`, ({ request }) => {
     const url = new URL(request.url);
     const cursor = url.searchParams.get('cursor');
-    if (!cursor) {
+    if (cursor == null || cursor === '') {
       return HttpResponse.json({
         items: [
           { id: 'c1', name: 'Acme Co' },

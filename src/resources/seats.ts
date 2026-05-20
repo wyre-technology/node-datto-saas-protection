@@ -36,8 +36,8 @@ export class SeatsResource {
     const query: Record<string, string | number | boolean | undefined> = {
       limit: clampLimit(params?.limit),
     };
-    if (params?.cursor) query['cursor'] = params.cursor;
-    if (params?.includeArchived) query['includeArchived'] = true;
+    if (params?.cursor != null && params.cursor !== '') query['cursor'] = params.cursor;
+    if (params?.includeArchived === true) query['includeArchived'] = true;
     return this.httpClient.get<PaginatedResponse<SaasProtectionSeat>>(
       this.path(clientId, domainId),
       query
@@ -51,7 +51,7 @@ export class SeatsResource {
     params?: PaginationParams & SeatListParams
   ): PaginatedIterable<SaasProtectionSeat> {
     const extra: Record<string, string | number | boolean | undefined> = {};
-    if (params?.includeArchived) extra['includeArchived'] = true;
+    if (params?.includeArchived === true) extra['includeArchived'] = true;
     return new PaginatedIterable<SaasProtectionSeat>(
       this.httpClient,
       this.path(clientId, domainId),

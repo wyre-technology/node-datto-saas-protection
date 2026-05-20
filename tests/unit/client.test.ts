@@ -74,7 +74,7 @@ describe('DattoSaasProtectionClient', () => {
     const c = makeClient();
     const page = await c.seats.list('c1', 'd1');
     expect(page.items).toHaveLength(2);
-    expect(page.items.every((s) => !s.archived)).toBe(true);
+    expect(page.items.every((s) => s.archived !== true)).toBe(true);
   });
 
   it('includes archived seats when includeArchived: true', async () => {

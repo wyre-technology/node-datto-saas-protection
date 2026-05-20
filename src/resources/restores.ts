@@ -74,7 +74,8 @@ export class RestoresResource {
     const intervalMs = options.intervalMs ?? DEFAULT_RESTORE_POLL_INTERVAL_MS;
     const timeoutMs = options.timeoutMs;
     const now = options.now ?? Date.now;
-    const sleep = options.sleep ?? ((ms) => new Promise<void>((r) => setTimeout(r, ms)));
+    const sleep =
+      options.sleep ?? ((ms: number): Promise<void> => new Promise<void>((r) => setTimeout(r, ms)));
     const start = now();
 
     for (;;) {

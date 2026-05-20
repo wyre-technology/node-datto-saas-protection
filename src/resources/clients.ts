@@ -26,7 +26,7 @@ export class ClientsResource {
     const query: Record<string, string | number | boolean | undefined> = {
       limit: clampLimit(params?.limit),
     };
-    if (params?.cursor) query['cursor'] = params.cursor;
+    if (params?.cursor != null && params.cursor !== '') query['cursor'] = params.cursor;
     return this.httpClient.get<PaginatedResponse<SaasProtectionClient>>('/clients', query);
   }
 

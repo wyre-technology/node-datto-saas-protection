@@ -9,6 +9,6 @@ export default defineConfig({
   clean: true,
   minify: false,
   treeshake: true,
-  target: 'node18',
+  target: 'node22',
   outDir: 'dist',
 });
