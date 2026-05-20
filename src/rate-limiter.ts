@@ -90,7 +90,7 @@ export class RateLimiter {
 
   /** Compute exponential backoff delay capped at 30s. */
   calculateRetryDelay(retryCount: number, retryAfterSeconds?: number): number {
-    if (retryAfterSeconds && retryAfterSeconds > 0) {
+    if (retryAfterSeconds != null && retryAfterSeconds > 0) {
       return Math.min(retryAfterSeconds * 1000, 30_000);
     }
     return Math.min(this.config.retryAfterMs * Math.pow(2, retryCount), 30_000);

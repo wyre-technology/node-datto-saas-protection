@@ -144,7 +144,10 @@ export class HttpClient {
         );
       case 429: {
         const retryAfterHeader = response.headers.get('retry-after');
-        const retryAfterSeconds = retryAfterHeader ? parseInt(retryAfterHeader, 10) : undefined;
+        const retryAfterSeconds =
+          retryAfterHeader != null && retryAfterHeader !== ''
+            ? parseInt(retryAfterHeader, 10)
+            : undefined;
         if (this.rateLimiter.shouldRetry(retryCount)) {
           const delay = this.rateLimiter.calculateRetryDelay(retryCount, retryAfterSeconds);
           await this.sleep(delay);
