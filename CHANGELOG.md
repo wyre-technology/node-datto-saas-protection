@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/wyre-technology/node-datto-saas-protection/compare/v2.0.0...v2.0.1) (2026-06-22)
+
+
+### Bug Fixes
+
+* **tsconfig:** restore include/exclude globs ([#37](https://github.com/wyre-technology/node-datto-saas-protection/issues/37)) ([5fb956b](https://github.com/wyre-technology/node-datto-saas-protection/commit/5fb956b0e40b050245725d0c1240018336fd4925))
+
 # [2.0.0](https://github.com/wyre-technology/node-datto-saas-protection/compare/v1.0.1...v2.0.0) (2026-05-15)
 
 
