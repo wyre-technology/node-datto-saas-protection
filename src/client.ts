@@ -19,7 +19,7 @@ import { LicenseResource } from './resources/license.js';
  *
  * @example
  * ```typescript
- * import { DattoSaasProtectionClient } from '@wyre-technology/node-datto-saas-protection';
+ * import { DattoSaasProtectionClient } from '@wyre-ai/node-datto-saas-protection';
  *
  * const client = new DattoSaasProtectionClient({
  *   publicKey: process.env.DATTO_SAAS_PUBLIC_KEY!,

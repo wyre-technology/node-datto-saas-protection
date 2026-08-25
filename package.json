@@ -1,5 +1,5 @@
 {
-  "name": "@wyre-technology/node-datto-saas-protection",
+  "name": "@wyre-ai/node-datto-saas-protection",
   "version": "2.0.1",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -53,12 +53,12 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wyre-technology/node-datto-saas-protection.git"
+    "url": "git+https://github.com/WYRE-AI/node-datto-saas-protection.git"
   },
   "bugs": {
-    "url": "https://github.com/wyre-technology/node-datto-saas-protection/issues"
+    "url": "https://github.com/WYRE-AI/node-datto-saas-protection/issues"
   },
-  "homepage": "https://github.com/wyre-technology/node-datto-saas-protection#readme",
+  "homepage": "https://github.com/WYRE-AI/node-datto-saas-protection#readme",
   "engines": {
     "node": ">=22.0.0"
   },

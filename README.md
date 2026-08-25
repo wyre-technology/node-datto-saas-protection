@@ -1,4 +1,4 @@
-# @wyre-technology/node-datto-saas-protection
+# @wyre-ai/node-datto-saas-protection
 
 Comprehensive, fully-typed Node.js / TypeScript client library for the
 [Datto SaaS Protection (Backupify) REST API](https://api.datto.com/api/v1).
@@ -19,20 +19,20 @@ Comprehensive, fully-typed Node.js / TypeScript client library for the
 ## Install
 
 ```bash
-npm install @wyre-technology/node-datto-saas-protection
+npm install @wyre-ai/node-datto-saas-protection
 ```
 
-The package is published to GitHub Packages under the `@wyre-technology` scope.
+The package is published to GitHub Packages under the `@wyre-ai` scope.
 Add this to a project-local `.npmrc`:
 
 ```
-@wyre-technology:registry=https://npm.pkg.github.com
+@wyre-ai:registry=https://npm.pkg.github.com
 ```
 
 ## Quick start
 
 ```typescript
-import { DattoSaasProtectionClient } from '@wyre-technology/node-datto-saas-protection';
+import { DattoSaasProtectionClient } from '@wyre-ai/node-datto-saas-protection';
 
 const client = new DattoSaasProtectionClient({
   apiKey: process.env.DATTO_SAAS_API_KEY!,
@@ -183,7 +183,7 @@ import {
   DattoSaasProtectionConflictError,
   DattoSaasProtectionRateLimitError,
   DattoSaasProtectionServerError,
-} from '@wyre-technology/node-datto-saas-protection';
+} from '@wyre-ai/node-datto-saas-protection';
 
 try {
   await client.seats.get('seat-123');
