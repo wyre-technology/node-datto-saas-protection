@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/WYRE-AI/node-datto-saas-protection/compare/v2.0.1...v2.0.2) (2026-08-25)
+
+
+### Bug Fixes
+
+* migrate to WYRE-AI org (npm scope, ghcr namespace, registry) ([#52](https://github.com/WYRE-AI/node-datto-saas-protection/issues/52)) ([4e631b1](https://github.com/WYRE-AI/node-datto-saas-protection/commit/4e631b13f33644bcb01c16a3d94f62e02c264c0c))
+
 ## [2.0.1](https://github.com/wyre-technology/node-datto-saas-protection/compare/v2.0.0...v2.0.1) (2026-06-22)
 
 
