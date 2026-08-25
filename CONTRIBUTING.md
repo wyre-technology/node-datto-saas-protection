@@ -5,7 +5,7 @@ Thanks for your interest in contributing to `node-datto-saas-protection`.
 ## Development setup
 
 ```bash
-git clone https://github.com/wyre-technology/node-datto-saas-protection.git
+git clone https://github.com/WYRE-AI/node-datto-saas-protection.git
 cd node-datto-saas-protection
 npm install
 npm test

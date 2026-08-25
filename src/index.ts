@@ -1,5 +1,5 @@
 /**
- * @wyre-technology/node-datto-saas-protection
+ * @wyre-ai/node-datto-saas-protection
  *
  * Comprehensive, fully-typed Node.js/TypeScript client library for the
  * Datto SaaS Protection (Backupify) REST API.
